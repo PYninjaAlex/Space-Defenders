@@ -2,7 +2,7 @@ import pygame
 
 class Gun:
     def __init__(self, screen):
-        """иницифлизация пушки"""
+        """инициализация пушки"""
 
         self.screen = screen
         self.image = pygame.image.load('images/pixil-frame-0.png')

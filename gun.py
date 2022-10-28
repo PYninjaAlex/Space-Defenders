@@ -22,5 +22,7 @@ class Gun:
         '''обновление позиции пушки'''
         if self.mright and self.rect.right < self.screen_rect.right:
             self.rect.centerx += 1
+            self.mright = False
         if self.mleft and self.rect.left > 0:
             self.rect.centerx -= 1
+            self.mleft = False

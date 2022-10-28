@@ -14,6 +14,6 @@ def events(gun):
         elif event.type == pygame.KEYUP:
             # кнопка вправо
             if event.type == pygame.K_d:
-                gun.mright == False
+                gun.mright = False
             elif event.key == pygame.K_a:
                 gun.mleftt = False

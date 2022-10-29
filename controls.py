@@ -52,7 +52,7 @@ def create_army(screen, inos):
     ino_height = ino.rect.height
     number_ino_y = int((800 - 100 - 2 * ino_height) / ino_height)
 
-    for row_number in range(number_ino_y - 5):
+    for row_number in range(number_ino_y - 9):
         for ino_number in range(number_ino_x):
             ino = Ino(screen)
             ino.x = ino_width + (ino_width * ino_number)

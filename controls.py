@@ -1,6 +1,7 @@
 import pygame, sys
 from bullet import Bullet
 from ino import Ino
+import time
 
 def events(screen, gun, bullets):
     '''обработка событий'''
@@ -32,17 +33,30 @@ def update(bg_color, screen, gun, inos, bullets):
     inos.draw(screen)
     pygame.display.flip()
 
-def update_bullets(bullets):
+def update_bullets(inos, bullets):
     '''обновлять позиции пуль'''
     bullets.update()
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
+    collisions = pygame.sprite.groupcollide(bullets, inos, True, True)
     # TODO print(len(bullets))
 
-def update_inos(inos):
+def gun_kill(stats, screen, gun, bullets, inos):
+    '''столкновение пушки и армии'''
+    stats.guns_left -= 1
+    inos.empty()
+    bullets.empty()
+    create_army(screen, inos)
+    gun.create_gun()
+    time.sleep(2)
+
+def update_inos(stats, screen, inos, gun, bullets):
     '''обновление позиций инопланетян'''
     inos.update()
+    if pygame.sprite.spritecollideany(gun, inos):
+        gun_kill(stats, screen, inos, gun, bullets)
+
 
 def create_army(screen, inos):
     '''создание армии пришельцев'''

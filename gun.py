@@ -29,3 +29,7 @@ class Gun:
             # self.mright = False
             # self.rect.centerx -= 1
             # self.mleft = False
+
+    def create_gun(self):
+        '''размещает пушку по центру внизу'''
+        self.center = self.screen_rect.centerx

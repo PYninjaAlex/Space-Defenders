@@ -48,14 +48,13 @@ def gun_kill(stats, screen, gun, bullets, inos):
     inos.empty()
     bullets.empty()
     create_army(screen, inos)
-    gun.create_gun()
     time.sleep(2)
 
 def update_inos(stats, screen, inos, gun, bullets):
     '''обновление позиций инопланетян'''
     inos.update()
     if pygame.sprite.spritecollideany(gun, inos):
-        gun_kill(stats, screen, inos, gun, bullets)
+        gun_kill(stats, screen, gun, bullets, inos)
 
 
 def create_army(screen, inos):

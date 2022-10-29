@@ -1,8 +1,10 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Gun:
+class Gun(Sprite):
     def __init__(self, screen):
         """инициализация пушки"""
+        super(Gun, self).__init__()
 
         self.screen = screen
         self.image = pygame.image.load('images/pixil-frame-0.png')
